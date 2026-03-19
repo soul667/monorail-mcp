@@ -1,0 +1,32 @@
+# Source files (only publish built code.js)
+code.ts
+src/
+tsconfig.json
+
+# Build tools
+node_modules/
+npm-debug.log*
+*.log
+
+# Development files
+.vscode/
+.idea/
+
+# Test files
+test/
+tests/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db

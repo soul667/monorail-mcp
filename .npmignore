@@ -1,0 +1,48 @@
+# Source files (only publish built dist/)
+src/
+shared/*.ts
+tsconfig.json
+
+# Build tools and config
+.github/
+.vscode/
+.idea/
+
+# Documentation (keep minimal docs, exclude verbose ones)
+docs/
+examples/
+PLAN.md
+CLAUDE.md
+
+# Git files
+.git/
+.gitignore
+
+# Development files
+node_modules/
+npm-debug.log*
+*.log
+
+# Test files
+test/
+tests/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+coverage/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*

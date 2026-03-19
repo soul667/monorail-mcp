@@ -1,5 +1,5 @@
 {
-  "name": "monorail-mcp",
+  "name": "@soul667/monorail-mcp",
   "version": "0.1.0",
   "description": "MCP server for building presentation decks with narrative coherence in Figma",
   "type": "module",
@@ -8,6 +8,18 @@
     "monorail-mcp": "dist/src/index.js",
     "monorail-proxy": "dist/src/proxy.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soul667/monorail-mcp.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
