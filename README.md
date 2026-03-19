@@ -9,13 +9,84 @@ MCP server for real-time design collaboration in Figma. Claude and humans work i
 ### Prerequisites
 
 - Node.js 18+ (`node --version`)
-- An MCP client (Claude Code, Claude Desktop, Cursor, etc.)
+- An MCP client (Claude Code, Claude Desktop, Cursor, Antigravity, OpenCode, etc.)
 - Figma account with Slides access
 
-### Build
+### Quick Install (Recommended)
+
+Install from GitHub Packages:
 
 ```bash
-git clone https://github.com/anthropics/monorail-mcp.git
+# Configure npm to use GitHub Packages
+echo "@soul667:registry=https://npm.pkg.github.com" >> ~/.npmrc
+
+# Install the MCP server globally
+npm install -g @soul667/monorail-mcp
+
+# Install the Figma plugin globally
+npm install -g @soul667/monorail-figma-plugin
+```
+
+**Client-Specific Guides:**
+- [**Antigravity** Installation Guide](docs/INSTALL_ANTIGRAVITY.md)
+- [**OpenCode** Installation Guide](docs/INSTALL_OPENCODE.md)
+- **Claude Desktop / Claude Code**: See below
+
+### Configure Your MCP Client
+
+#### Claude Desktop / Claude Code
+
+Add Monorail to your MCP config (typically `claude_desktop_config.json` or `.claude/mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "monorail": {
+      "command": "monorail-mcp"
+    }
+  }
+}
+```
+
+> **Note**: If the global command doesn't work, use the full path:
+> ```json
+> {
+>   "mcpServers": {
+>     "monorail": {
+>       "command": "node",
+>       "args": ["$(npm root -g)/@soul667/monorail-mcp/dist/src/index.js"]
+>     }
+>   }
+> }
+> ```
+
+#### Other MCP Clients
+
+For Antigravity and OpenCode, see the dedicated installation guides linked above.
+
+### Load the Figma Plugin
+
+1. Open Figma (desktop app or browser)
+2. Go to **Plugins > Development > Import plugin from manifest...**
+3. Navigate to the global npm modules location:
+   - Run `npm root -g` to find the path
+   - Select `@soul667/monorail-figma-plugin/manifest.json`
+
+This is a one-time setup.
+
+### Verify
+
+1. Open a Figma Slides document
+2. Run the plugin: **Plugins > Development > Monorail**
+3. Check for the green "Connected" indicator
+4. In your MCP client, run `monorail_status` to confirm
+
+### Development Installation
+
+If you want to contribute or modify Monorail:
+
+```bash
+git clone https://github.com/soul667/monorail-mcp.git
 cd monorail-mcp
 npm install && npm run build
 
@@ -24,9 +95,7 @@ npm install && npm run build
 cd ..
 ```
 
-### Configure your MCP client
-
-Add Monorail to your MCP client config. For Claude Desktop, edit `claude_desktop_config.json`:
+Configure your MCP client to use the local installation:
 
 ```json
 {
@@ -40,21 +109,6 @@ Add Monorail to your MCP client config. For Claude Desktop, edit `claude_desktop
 ```
 
 > Use the full absolute path. Restart your MCP client after adding the config.
-
-### Load the Figma Plugin
-
-1. Open Figma (desktop app or browser)
-2. Go to **Plugins > Development > Import plugin from manifest...**
-3. Select `monorail-mcp/figma-plugin/manifest.json`
-
-This is a one-time setup.
-
-### Verify
-
-1. Open a Figma Slides document
-2. Run the plugin: **Plugins > Development > Monorail**
-3. Check for the green "Connected" indicator
-4. In your MCP client, run `monorail_status` to confirm
 
 ## Quick Start
 

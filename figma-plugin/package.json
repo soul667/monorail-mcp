@@ -1,7 +1,21 @@
 {
-  "name": "monorail-figma-plugin",
+  "name": "@soul667/monorail-figma-plugin",
   "version": "0.1.0",
   "description": "Monorail plugin for Figma - converts IR to slides",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soul667/monorail-mcp.git",
+    "directory": "figma-plugin"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "code.js",
+    "manifest.json",
+    "ui.html",
+    "README.md"
+  ],
   "scripts": {
     "build": "npm run typecheck && npm run bundle",
     "typecheck": "tsc",
